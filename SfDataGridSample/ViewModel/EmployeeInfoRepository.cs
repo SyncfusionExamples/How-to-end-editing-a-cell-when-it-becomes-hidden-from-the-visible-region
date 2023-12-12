@@ -8,21 +8,9 @@ namespace SfDataGridSample
     public class EmployeeViewModel : IDisposable
     {
 
-        public ICommand ItemTappedCommand { get; private set; }
-
-        private void OnItemTapped(object parameter)
-        {
-            Page currentPage = GetCurrentPage();
-            currentPage.DisplayAlert("Alert", "Item Tapped", "OK");
-        }
-        private Page GetCurrentPage()
-        {
-            return Application.Current.MainPage;
-        }
         public EmployeeViewModel()
         {
             PopulateData();
-            ItemTappedCommand = new Command<object>(OnItemTapped);
             employees = this.GetEmployeeDetails(200);
         }
 
